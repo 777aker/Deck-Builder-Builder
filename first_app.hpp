@@ -1,9 +1,9 @@
 #pragma once
 
-#include "lve_device.hpp"
-#include "lve_game_object.hpp"
-#include "lve_renderer.hpp"
-#include "lve_window.hpp"
+#include "lve/lve_device.hpp"
+#include "lve/lve_game_object.hpp"
+#include "lve/lve_renderer.hpp"
+#include "lve/lve_window.hpp"
 
 #include <memory>
 #include <vector>
