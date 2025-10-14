@@ -9,14 +9,14 @@
 
 namespace lve
 {
-    class SimpleRenderSystem
+    class RenderSystem
     {
     public:
-        SimpleRenderSystem(LveDevice &device, VkRenderPass renderPass);
-        ~SimpleRenderSystem();
+        RenderSystem(LveDevice &device, VkRenderPass renderPass);
+        ~RenderSystem();
 
-        SimpleRenderSystem(const SimpleRenderSystem &) = delete;
-        SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
+        RenderSystem(const RenderSystem &) = delete;
+        RenderSystem &operator=(const RenderSystem &) = delete;
 
         void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<LveGameObject> &gameObjects);
 

@@ -1,5 +1,4 @@
-
-#include "first_app.hpp"
+#include <gm.hpp>
 
 #include <cstdlib>
 #include <iostream>
@@ -7,11 +6,11 @@
 
 int main()
 {
-  lve::FirstApp app{};
+  GTR::GameManager gm{};
 
   try
   {
-    app.run();
+    gm.run();
   }
   catch (const std::exception &e)
   {
