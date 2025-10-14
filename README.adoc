@@ -1,0 +1,5 @@
+Kraken Space Defense
+
+A game about defending space from krakens
+
+Going to learn and use Vulkan for this one yipeeeee
