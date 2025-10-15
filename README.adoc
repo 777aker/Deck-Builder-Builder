@@ -1,1 +1,9 @@
 Summon little guys
+
+== Build
+[bash]
+----
+meson setup builddir
+meson compile -C builddir
+./builddir/tutorial
+----
