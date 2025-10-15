@@ -1,4 +1,4 @@
-project('KSD', 'cpp', default_options: ['cpp_std=c++20'])
+project('GTR', 'cpp', default_options: ['cpp_std=c++20'])
 
 deps = [dependency('glfw3'), dependency('vulkan'), dependency('dl'), dependency('threads'), dependency('X11')]
 
