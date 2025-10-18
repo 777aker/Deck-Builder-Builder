@@ -4,6 +4,7 @@
 #include "lve/lve_game_object.hpp"
 #include "lve/lve_renderer.hpp"
 #include "lve/lve_window.hpp"
+#include "lve/lve_descriptors.hpp"
 
 #include <memory>
 #include <vector>
@@ -29,6 +30,7 @@ namespace GTR
         lve::LveDevice lveDevice{lveWindow};
         lve::LveRenderer lveRenderer{lveWindow, lveDevice};
 
+        std::unique_ptr<lve::LveDescriptorPool> globalPool{};
         std::vector<lve::LveGameObject> gameObjects;
     };
 }
