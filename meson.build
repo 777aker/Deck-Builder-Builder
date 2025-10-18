@@ -8,5 +8,5 @@ lve_lib = shared_library('lve', lve_sources, include_directories: lve_include, d
 
 inc = include_directories('.')
 program_sources = ['main.cpp', 'gm.cpp', 'renderer.cpp', 'models.cpp']
-exec = executable('tutorial', program_sources, include_directories: inc, dependencies: deps, link_with: lve_lib)
+exec = executable('gtr', program_sources, include_directories: inc, dependencies: deps, link_with: lve_lib)
 custom_target('compile_shaders', depends : exec, input : exec, output : 'fake', command : ['compile_shaders.sh'], build_by_default : true)
