@@ -18,7 +18,8 @@ namespace dbbe
         RenderSystem(const RenderSystem &) = delete;
         RenderSystem &operator=(const RenderSystem &) = delete;
 
-        void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet);
+        void beginRender(VkCommandBuffer commandBuffer, VkDescriptorSet &descriptorSet);
+        void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects);
 
     private:
         void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);

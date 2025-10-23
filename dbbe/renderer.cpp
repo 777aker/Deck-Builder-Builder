@@ -34,7 +34,7 @@ namespace dbbe
     void RenderSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLayout)
     {
         VkPushConstantRange pushConstantRange{};
-        pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+        pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
         pushConstantRange.offset = 0;
         pushConstantRange.size = sizeof(PushConstantData);
 
@@ -68,8 +68,7 @@ namespace dbbe
             pipelineConfig);
     }
 
-    void RenderSystem::renderGameObjects(
-        VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet)
+    void RenderSystem::beginRender(VkCommandBuffer commandBuffer, VkDescriptorSet &descriptorSet)
     {
         lvePipeline->bind(commandBuffer);
 
@@ -81,7 +80,11 @@ namespace dbbe
             &descriptorSet,
             0,
             nullptr);
+    }
 
+    void RenderSystem::renderGameObjects(
+        VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects)
+    {
         for (auto &obj : gameObjects)
         {
             PushConstantData push{};
@@ -92,7 +95,7 @@ namespace dbbe
             vkCmdPushConstants(
                 commandBuffer,
                 pipelineLayout,
-                VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+                VK_SHADER_STAGE_VERTEX_BIT,
                 0,
                 sizeof(PushConstantData),
                 &push);

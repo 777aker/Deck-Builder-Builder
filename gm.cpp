@@ -56,7 +56,7 @@ namespace GTR
 
         dbbe::RenderSystem renderSystem{lveDevice, lveRenderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
 
-        std::shared_ptr<lve::LveModel> squareModel = dbbe::createSquareModel(lveDevice, {0.0f, 0.0f});
+        std::shared_ptr<lve::LveModel> squareModel = dbbe::createSquareModel(lveDevice);
 
         std::vector<lve::LveGameObject> renderObjects{};
         auto test_point_1 = lve::LveGameObject::createGameObject();
@@ -92,8 +92,9 @@ namespace GTR
                 uboBuffers[lveRenderer.getFrameIndex()]->writeToBuffer(&ubo);
                 // render
                 lveRenderer.beginSwapChainRenderPass(commandBuffer);
-                // switch based on game state and call that classes renderer
-                renderSystem.renderGameObjects(commandBuffer, renderObjects, globalDescriptorSets[lveRenderer.getFrameIndex()]);
+                renderSystem.beginRender(commandBuffer, globalDescriptorSets[lveRenderer.getFrameIndex()]);
+                // switch based on game state and call that class's renderer
+                renderSystem.renderGameObjects(commandBuffer, renderObjects);
                 lveRenderer.endSwapChainRenderPass(commandBuffer);
                 lveRenderer.endFrame();
             }

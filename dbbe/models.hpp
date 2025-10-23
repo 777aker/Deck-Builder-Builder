@@ -12,5 +12,5 @@
 
 namespace dbbe
 {
-    std::unique_ptr<lve::LveModel> createSquareModel(lve::LveDevice &device, glm::vec2 position);
+    std::unique_ptr<lve::LveModel> createSquareModel(lve::LveDevice &device);
 }
