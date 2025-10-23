@@ -7,26 +7,26 @@
 #include <memory>
 #include <vector>
 
-namespace lve
+namespace dbbe
 {
     class RenderSystem
     {
     public:
-        RenderSystem(LveDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+        RenderSystem(lve::LveDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
         ~RenderSystem();
 
         RenderSystem(const RenderSystem &) = delete;
         RenderSystem &operator=(const RenderSystem &) = delete;
 
-        void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet);
+        void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet);
 
     private:
         void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);
         void createPipeline(VkRenderPass renderPass);
 
-        LveDevice &lveDevice;
+        lve::LveDevice &lveDevice;
 
-        std::unique_ptr<LvePipeline> lvePipeline;
+        std::unique_ptr<lve::LvePipeline> lvePipeline;
         VkPipelineLayout pipelineLayout;
     };
 }

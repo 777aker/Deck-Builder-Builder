@@ -1,6 +1,6 @@
 #include "models.hpp"
 
-namespace models
+namespace dbbe
 {
     std::unique_ptr<lve::LveModel> createSquareModel(lve::LveDevice &device, glm::vec2 offset)
     {

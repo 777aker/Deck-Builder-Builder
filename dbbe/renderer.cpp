@@ -9,7 +9,7 @@
 #include <array>
 #include <cassert>
 
-namespace lve
+namespace dbbe
 {
 
     struct PushConstantData
@@ -19,7 +19,7 @@ namespace lve
         alignas(16) glm::vec3 color;
     };
 
-    RenderSystem::RenderSystem(LveDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout)
+    RenderSystem::RenderSystem(lve::LveDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout)
         : lveDevice{device}
     {
         createPipelineLayout(globalSetLayout);
@@ -57,11 +57,11 @@ namespace lve
     {
         assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
 
-        PipelineConfigInfo pipelineConfig{};
-        LvePipeline::defaultPipelineConfigInfo(pipelineConfig);
+        lve::PipelineConfigInfo pipelineConfig{};
+        lve::LvePipeline::defaultPipelineConfigInfo(pipelineConfig);
         pipelineConfig.renderPass = renderPass;
         pipelineConfig.pipelineLayout = pipelineLayout;
-        lvePipeline = std::make_unique<LvePipeline>(
+        lvePipeline = std::make_unique<lve::LvePipeline>(
             lveDevice,
             "shaders/simple_shader.vert.spv",
             "shaders/simple_shader.frag.spv",
@@ -69,7 +69,7 @@ namespace lve
     }
 
     void RenderSystem::renderGameObjects(
-        VkCommandBuffer commandBuffer, std::vector<LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet)
+        VkCommandBuffer commandBuffer, std::vector<lve::LveGameObject> &gameObjects, VkDescriptorSet &descriptorSet)
     {
         lvePipeline->bind(commandBuffer);
 

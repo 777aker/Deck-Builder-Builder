@@ -14,6 +14,13 @@ namespace GTR
     class GameManager
     {
     public:
+        enum GameStates
+        {
+            MAIN_MENU,
+            FONT_EDITOR,
+            UNIT_EDITOR
+        };
+
         static constexpr int WIDTH = 800;
         static constexpr int HEIGHT = 600;
 
@@ -26,6 +33,8 @@ namespace GTR
         void run();
 
     private:
+        enum GameStates gameState = MAIN_MENU;
+
         lve::LveWindow lveWindow{WIDTH, HEIGHT, "Vulkan Tutorial"};
         lve::LveDevice lveDevice{lveWindow};
         lve::LveRenderer lveRenderer{lveWindow, lveDevice};

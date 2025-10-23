@@ -1,7 +1,7 @@
 #include "gm.hpp"
 
-#include "renderer.hpp"
-#include "models.hpp"
+#include "dbbe/renderer.hpp"
+#include "dbbe/models.hpp"
 #include "lve/lve_buffer.hpp"
 
 #define GLM_FORCE_RADIANS
@@ -54,9 +54,9 @@ namespace GTR
                 .build(globalDescriptorSets[i]);
         }
 
-        lve::RenderSystem renderSystem{lveDevice, lveRenderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+        dbbe::RenderSystem renderSystem{lveDevice, lveRenderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
 
-        std::shared_ptr<lve::LveModel> squareModel = models::createSquareModel(lveDevice, {0.0f, 0.0f});
+        std::shared_ptr<lve::LveModel> squareModel = dbbe::createSquareModel(lveDevice, {0.0f, 0.0f});
 
         std::vector<lve::LveGameObject> renderObjects{};
         auto test_point_1 = lve::LveGameObject::createGameObject();
@@ -70,6 +70,8 @@ namespace GTR
         test_point_2.model = squareModel;
         test_point_2.transform2d.translation = {0.8f, -0.4f};
         renderObjects.push_back(std::move(test_point_2));
+
+        // init main menu
 
         auto currentTime = std::chrono::high_resolution_clock::now();
 
@@ -90,6 +92,7 @@ namespace GTR
                 uboBuffers[lveRenderer.getFrameIndex()]->writeToBuffer(&ubo);
                 // render
                 lveRenderer.beginSwapChainRenderPass(commandBuffer);
+                // switch based on game state and call that classes renderer
                 renderSystem.renderGameObjects(commandBuffer, renderObjects, globalDescriptorSets[lveRenderer.getFrameIndex()]);
                 lveRenderer.endSwapChainRenderPass(commandBuffer);
                 lveRenderer.endFrame();
