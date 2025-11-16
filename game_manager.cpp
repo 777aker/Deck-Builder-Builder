@@ -10,16 +10,37 @@ GameManager::GameManager(Window *windowobj)
 
 GameManager::~GameManager() {}
 
+void GameManager::init_main_menu()
+{
+    // std::unique_ptr<Text> tit = std::make_unique<Text>((float)(dim * 0.8), (float)(dim * 0.5), "Deck Builder Builder", midnight_blue, 16.0);
+    // drawObjects.push_back(std::move(tit));
+}
+
 void GameManager::render_loop()
 {
+    init_main_menu();
+
     while (!glfwWindowShouldClose(windowobj->glwindow))
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glUseProgram(main_shader);
-        int id = glGetUniformLocation(main_shader, "dim");
-        glUniform1d(id, dim);
-        id = glGetUniformLocation(main_shader, "asp");
-        glUniform1d(id, asp);
+        if (gameState == MAIN_MENU)
+        {
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            glUseProgram(main_shader);
+            glUniform1d(glGetUniformLocation(main_shader, "dim"), dim);
+            glUniform1d(glGetUniformLocation(main_shader, "asp"), asp);
+
+            text.draw_text(main_shader, -dim * 0.9, dim * 0.7, "Deck Builder Builder", -1, sunflower, 0.5);
+        }
+        else if (gameState == UNIT_BUILDER)
+        {
+        }
+
+        for (auto &drawObject : drawObjects)
+        {
+            drawObject->draw();
+        }
 
         int err = glGetError();
         if (err)

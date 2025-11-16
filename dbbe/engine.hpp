@@ -44,3 +44,10 @@ private:
 	int fps = 0;
 	int sec0 = 0, fpscount = 0;
 };
+
+class DrawObject
+{
+public:
+	virtual void draw() { printf("Fukcing parents am i right\n"); };
+	virtual ~DrawObject() = default;
+};

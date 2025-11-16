@@ -1,6 +1,6 @@
 #include "button.hpp"
 
-Button::Button(void (*call)(), double xpos, double ypos, std::string words, color fill)
+Button::Button(void (*call)(), float xpos, float ypos, std::string words, color fill)
 {
     this->call = call;
     this->xpos = xpos;
@@ -15,7 +15,7 @@ Button::~Button()
 {
 }
 
-bool Button::clicked(double xpos, double ypos)
+bool Button::clicked(float xpos, float ypos)
 {
     if (xpos > this->xpos - this->width && xpos < this->xpos + this->width && ypos > this->ypos - this->height && ypos < this->ypos + this->height)
     {

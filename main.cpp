@@ -21,7 +21,7 @@ void mouse(GLFWwindow *gl_window, int button, int action, int mods)
 
 int main(int argc, char *argv[])
 {
-    Window mainwindow("Deck Builder Builder", 0, 1200, 900, key, mouse);
+    Window mainwindow("Deck Builder Builder", 1, 1200, 900, key, mouse);
     // clear color accepts them in a 1.0-0.0 scale so this is the only time we need to do this
     glClearColor((float)midnight_blue.r / 255.0, (float)midnight_blue.g / 255.0, (float)midnight_blue.b / 255.0, 1.0);
 

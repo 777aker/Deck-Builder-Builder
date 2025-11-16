@@ -2,22 +2,23 @@
 
 #include "dbbe/engine.hpp"
 #include "dbbe/colors.hpp"
-#include "string"
+
+#include <string>
 
 class Button
 {
 public:
-    Button(void (*call)(), double xpos, double ypos, std::string words, color fill);
+    Button(void (*call)(), float xpos, float ypos, std::string words, color fill);
     ~Button();
-    bool clicked(double xpos, double ypos);
+    bool clicked(float xpos, float ypos);
     void draw_button();
 
 private:
     void (*call)();
-    double xpos;
-    double ypos;
-    double width;
-    double height;
+    float xpos;
+    float ypos;
+    float width;
+    float height;
     color fill;
     std::string words;
 };

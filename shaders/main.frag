@@ -1,17 +1,12 @@
 #version 400 core
-out vec4 FragColor;
-  
-in vec3 ourColor;
-in vec2 TexCoord;
+in vec2 TexCoords;
+out vec4 color;
 
-uniform sampler2D ourTexture;
+uniform sampler2D text;
+uniform vec3 textColor;
 
 void main()
-{
-    vec4 texColor = texture(ourTexture, TexCoord);
-    if(texColor.r > 0.9 && texColor.g > 0.9 && texColor.b > 0.9) {
-        FragColor = vec4(0.0, 0.0, 0.0, 0.0);
-    } else {
-        FragColor = texture(ourTexture, TexCoord);
-    }
-}
+{    
+    vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, TexCoords).r);
+    color = vec4(textColor, 1.0) * sampled;
+}  

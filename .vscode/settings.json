@@ -1,4 +1,6 @@
 {
-    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild",
-    "C_Cpp.default.compileCommands": "/home/kelley/Desktop/Deck-Builder-Builder/builddir/compile_commands.json"
+    "files.associations": {
+        "string": "cpp"
+    },
+    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild"
 }
