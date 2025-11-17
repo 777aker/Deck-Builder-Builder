@@ -71,7 +71,7 @@ Text::~Text() {};
 
 void Text::draw_text(int shader, float xpos, float ypos, std::string words, float width, color fill, float size)
 {
-    glUniform3f(glGetUniformLocation(shader, "ourColor"), fill.r, fill.g, fill.b);
+    glUniform3f(glGetUniformLocation(shader, "textColor"), fill.r, fill.g, fill.b);
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(VAO);
 

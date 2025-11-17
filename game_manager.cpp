@@ -31,7 +31,7 @@ void GameManager::render_loop()
             glUniform1d(glGetUniformLocation(main_shader, "dim"), dim);
             glUniform1d(glGetUniformLocation(main_shader, "asp"), asp);
 
-            text.draw_text(main_shader, -dim * 0.9, dim * 0.7, "Deck Builder Builder", -1, sunflower, 0.5);
+            text.draw_text(main_shader, -dim * asp, dim * 0.8, "Deck Builder Builder", -1, sunflower, 0.45);
         }
         else if (gameState == UNIT_BUILDER)
         {
