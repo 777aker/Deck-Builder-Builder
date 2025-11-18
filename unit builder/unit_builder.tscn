@@ -1,9 +1,67 @@
-[gd_scene format=3 uid="uid://c7pyuab2alyjr"]
+[gd_scene load_steps=4 format=3 uid="uid://c7pyuab2alyjr"]
 
-[node name="Unit Builder" type="Control"]
+[ext_resource type="Texture2D" uid="uid://ccsr5f7hoec5u" path="res://assets/basic shapes/circle.png" id="1_hbolo"]
+[ext_resource type="Texture2D" uid="uid://do6thqmjqsk5t" path="res://assets/basic shapes/square.png" id="2_25y4f"]
+[ext_resource type="Texture2D" uid="uid://b4tsngo88c0de" path="res://assets/basic shapes/triangle.png" id="3_4eocd"]
+
+[node name="Unit Builder" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ShapeSelection" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ShapeSelection"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 113.0
+grow_horizontal = 2
+
+[node name="Basic Shapes" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
+layout_mode = 2
+text = "Basic Shapes"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Square" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_25y4f")
+expand_icon = true
+
+[node name="Circle" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_hbolo")
+expand_icon = true
+
+[node name="Triangle" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("3_4eocd")
+expand_icon = true
+
+[node name="Advanced Shapes" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
+layout_mode = 2
+text = "Advanced Shapes
+"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer/Advanced Shapes"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprites" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
+layout_mode = 2
+text = "Sprites"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer/Sprites"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
