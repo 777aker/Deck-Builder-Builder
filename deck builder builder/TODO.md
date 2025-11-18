@@ -8,17 +8,21 @@ kanban-plugin: board
 
 - [ ] Font
 	- [ ] add ttf reading
+- [ ] Unit Builder
+	- [ ] add shape options to left
+	- [ ] when click create shape and drag with cursor
+	- [ ] drop when released inside box area
+	- [ ] save shapes and parameters to file
+	- [ ] destroy card for shapes and words
+	- [ ] add words / card to right
+	- [ ] add little preview window
 
 
 ## In Progress
 
 - [ ] Main Menu
-- [ ] Unit Builder
-	- [ ] add shape models
-	- [ ] add shape options to left
-	- [ ] when click create shape and drag with cursor
-	- [ ] drop when released inside box area
-	- [ ] save shapes and parameters to file
+	- [ ] Title
+	- [ ] Open Unit Builder
 
 
 ## Done
