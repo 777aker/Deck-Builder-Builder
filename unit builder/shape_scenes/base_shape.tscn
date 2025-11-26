@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77ugstpa5fyx"]
+
+[ext_resource type="Script" uid="uid://du23goh3v2edb" path="res://unit builder/shape_scenes/base_shape.gd" id="1_jq3q8"]
+
+[node name="BaseShape" type="Node2D"]
+script = ExtResource("1_jq3q8")

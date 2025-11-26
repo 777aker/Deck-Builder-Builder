@@ -1,6 +1,7 @@
 extends Button
 
 @export var shape_obj: PackedScene
+@export var unit_node: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,10 +9,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_button_down() -> void:
 	var new_shape = shape_obj.instantiate()
-	get_tree().root.add_child(new_shape)
+	unit_node.add_child(new_shape)

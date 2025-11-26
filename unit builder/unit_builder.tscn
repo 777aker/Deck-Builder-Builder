@@ -41,7 +41,7 @@ texture = ExtResource("1_hbolo")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture"]
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture" node_paths=PackedStringArray("unit_node")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +51,7 @@ grow_vertical = 2
 text = "x1"
 script = ExtResource("2_4eocd")
 shape_obj = ExtResource("3_5iplo")
+unit_node = NodePath("../../../../../../UnitNode")
 
 [node name="Square Texture" type="TextureRect" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container"]
 layout_mode = 2
@@ -96,6 +97,8 @@ text = "Advanced Shapes
 [node name="Sprites" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
 layout_mode = 2
 text = "Sprites"
+
+[node name="UnitNode" type="Node2D" parent="."]
 
 [connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" method="_on_button_down"]
 [connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" method="_on_button_down"]

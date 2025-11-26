@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwykdr282w4xt"]
 
-[ext_resource type="Texture2D" uid="uid://do6thqmjqsk5t" path="res://assets/basic shapes/square.png" id="1_xs8wo"]
+[ext_resource type="Script" uid="uid://du23goh3v2edb" path="res://unit builder/shape_scenes/base_shape.gd" id="1_5d261"]
 
 [node name="RectangleShape" type="Node2D"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_xs8wo")
+script = ExtResource("1_5d261")

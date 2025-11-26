@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqelo8d30mknl"]
+[gd_scene load_steps=4 format=3 uid="uid://bqelo8d30mknl"]
 
+[ext_resource type="Script" uid="uid://du23goh3v2edb" path="res://unit builder/shape_scenes/base_shape.gd" id="1_qyuq5"]
 [ext_resource type="Texture2D" uid="uid://ccsr5f7hoec5u" path="res://assets/basic shapes/circle.png" id="1_twbkl"]
 
-[node name="CircleShape" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_auaoc"]
+radius = 131.00381
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CircleShape" type="Node2D"]
+script = ExtResource("1_qyuq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_twbkl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_auaoc")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
