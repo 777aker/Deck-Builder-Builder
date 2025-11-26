@@ -60,7 +60,7 @@ texture = ExtResource("2_25y4f")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture"]
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture" node_paths=PackedStringArray("unit_node")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +70,7 @@ grow_vertical = 2
 text = "x3"
 script = ExtResource("2_4eocd")
 shape_obj = ExtResource("5_rdjmo")
+unit_node = NodePath("../../../../../../UnitNode")
 
 [node name="Triangle Texture" type="TextureRect" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container"]
 layout_mode = 2
@@ -78,7 +79,7 @@ texture = ExtResource("3_4eocd")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Triangle Texture"]
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Triangle Texture" node_paths=PackedStringArray("unit_node")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +89,7 @@ grow_vertical = 2
 text = "x0"
 script = ExtResource("2_4eocd")
 shape_obj = ExtResource("7_5xb3o")
+unit_node = NodePath("../../../../../../UnitNode")
 
 [node name="Advanced Shapes" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
 layout_mode = 2
