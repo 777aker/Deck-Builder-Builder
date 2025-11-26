@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24bke4erjyhf"]
+
+[ext_resource type="Texture2D" uid="uid://b4tsngo88c0de" path="res://assets/basic shapes/triangle.png" id="1_6doe8"]
+
+[node name="TriangleShape" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6doe8")

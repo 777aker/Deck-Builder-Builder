@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7pyuab2alyjr"]
+[gd_scene load_steps=8 format=3 uid="uid://c7pyuab2alyjr"]
 
 [ext_resource type="Texture2D" uid="uid://ccsr5f7hoec5u" path="res://assets/basic shapes/circle.png" id="1_hbolo"]
+[ext_resource type="Script" uid="uid://cswrhyo8htmqr" path="res://unit builder/shape_spawner.gd" id="2_4eocd"]
 [ext_resource type="Texture2D" uid="uid://do6thqmjqsk5t" path="res://assets/basic shapes/square.png" id="2_25y4f"]
 [ext_resource type="Texture2D" uid="uid://b4tsngo88c0de" path="res://assets/basic shapes/triangle.png" id="3_4eocd"]
+[ext_resource type="PackedScene" uid="uid://bqelo8d30mknl" path="res://unit builder/shape_scenes/circle_shape.tscn" id="3_5iplo"]
+[ext_resource type="PackedScene" uid="uid://cwykdr282w4xt" path="res://unit builder/shape_scenes/rectangle_shape.tscn" id="5_rdjmo"]
+[ext_resource type="PackedScene" uid="uid://c24bke4erjyhf" path="res://unit builder/shape_scenes/triangle_shape.tscn" id="7_5xb3o"]
 
 [node name="Unit Builder" type="Node2D"]
 
@@ -26,42 +30,73 @@ grow_horizontal = 2
 layout_mode = 2
 text = "Basic Shapes"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
+[node name="Basic Container" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="Square" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
+[node name="Circle Texture" type="TextureRect" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container"]
 layout_mode = 2
-icon = ExtResource("2_25y4f")
-expand_icon = true
+size_flags_horizontal = 3
+texture = ExtResource("1_hbolo")
+expand_mode = 4
+stretch_mode = 4
 
-[node name="Circle" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
-layout_mode = 2
-icon = ExtResource("1_hbolo")
-expand_icon = true
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x1"
+script = ExtResource("2_4eocd")
+shape_obj = ExtResource("3_5iplo")
 
-[node name="Triangle" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/GridContainer"]
+[node name="Square Texture" type="TextureRect" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-icon = ExtResource("3_4eocd")
-expand_icon = true
+size_flags_horizontal = 3
+texture = ExtResource("2_25y4f")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x3"
+script = ExtResource("2_4eocd")
+shape_obj = ExtResource("5_rdjmo")
+
+[node name="Triangle Texture" type="TextureRect" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_4eocd")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Triangle Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x0"
+script = ExtResource("2_4eocd")
+shape_obj = ExtResource("7_5xb3o")
 
 [node name="Advanced Shapes" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
 layout_mode = 2
 text = "Advanced Shapes
 "
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer/Advanced Shapes"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Sprites" type="Button" parent="CanvasLayer/ShapeSelection/VBoxContainer"]
 layout_mode = 2
 text = "Sprites"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShapeSelection/VBoxContainer/Sprites"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Triangle Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Triangle Texture/Button" method="_on_button_down"]
