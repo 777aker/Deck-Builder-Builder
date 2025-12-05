@@ -30,9 +30,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 func _on_area_2d_mouse_entered() -> void:
 	for child in get_children():
 		if child is Sprite2D:
-			print(child.modulate)
 			child.modulate = child.modulate - highlight_color
-			print(child.modulate)
 	hovering = true
 
 
