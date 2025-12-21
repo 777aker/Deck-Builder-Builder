@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7pyuab2alyjr"]
+[gd_scene load_steps=9 format=3 uid="uid://c7pyuab2alyjr"]
 
 [ext_resource type="Texture2D" uid="uid://ccsr5f7hoec5u" path="res://assets/basic shapes/circle.png" id="1_hbolo"]
 [ext_resource type="Script" uid="uid://cswrhyo8htmqr" path="res://unit builder/shape_spawner.gd" id="2_4eocd"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bqelo8d30mknl" path="res://unit builder/shape_scenes/circle_shape.tscn" id="3_5iplo"]
 [ext_resource type="PackedScene" uid="uid://cwykdr282w4xt" path="res://unit builder/shape_scenes/rectangle_shape.tscn" id="5_rdjmo"]
 [ext_resource type="PackedScene" uid="uid://c24bke4erjyhf" path="res://unit builder/shape_scenes/triangle_shape.tscn" id="7_5xb3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iplo"]
+size = Vector2(524, 638)
 
 [node name="Unit Builder" type="Node2D"]
 
@@ -101,6 +104,19 @@ layout_mode = 2
 text = "Sprites"
 
 [node name="UnitNode" type="Node2D" parent="."]
+
+[node name="Art Area" type="Area2D" parent="UnitNode" groups=["DrawArea"]]
+position = Vector2(552, 383)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnitNode/Art Area"]
+position = Vector2(34, -40)
+shape = SubResource("RectangleShape2D_5iplo")
+
+[node name="Sprite2D" type="Sprite2D" parent="UnitNode/Art Area"]
+modulate = Color(0.25792462, 0.29761335, 0.32724786, 1)
+position = Vector2(34.999996, -40.49997)
+scale = Vector2(2.1796875, 2.6054688)
+texture = ExtResource("2_25y4f")
 
 [connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Circle Texture/Button" method="_on_button_down"]
 [connection signal="button_down" from="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" to="CanvasLayer/ShapeSelection/VBoxContainer/Basic Container/Square Texture/Button" method="_on_button_down"]

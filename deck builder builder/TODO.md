@@ -8,6 +8,12 @@ kanban-plugin: board
 
 - [ ] Font
 	- [ ] add ttf reading
+- [ ] Main Menu
+	- [x] Title
+	- [x] Open Unit Builder
+	- [ ] Open map
+	- [ ] Open Deck Builder
+	- [ ] Open multiplayer game
 
 
 ## In Progress
@@ -15,18 +21,12 @@ kanban-plugin: board
 - [ ] Unit Builder
 	- [x] add shape options to left
 	- [x] when click create shape and drag with cursor
-	- [ ] drop when released inside box area
+	- [x] drop when released inside box area
+	- [x] delete when dropped anywhere else
 	- [ ] save shapes and parameters to file
-	- [ ] destroy card for shapes and words
 	- [ ] add words / card to right
 	- [ ] add little preview window
 	- [ ] add gizmos for shaping object
-- [ ] Main Menu
-	- [x] Title
-	- [x] Open Unit Builder
-	- [ ] Open map
-	- [ ] Open Deck Builder
-	- [ ] Open multiplayer game
 
 
 ## Done

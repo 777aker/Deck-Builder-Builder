@@ -7,6 +7,7 @@
 size = Vector2(256, 256)
 
 [node name="RectangleShape" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5d261")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,6 +18,8 @@ texture = ExtResource("1_xs8wo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 shape = SubResource("RectangleShape2D_3odub")
 
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
